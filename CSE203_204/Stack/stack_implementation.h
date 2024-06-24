@@ -50,6 +50,21 @@ public:
         cout << endl;
     }
 
+    void reverse_print_stack() {
+        if(is_empty()) return;
+        stack<int> tempStack;
+        Node *iter = head;
+        while(iter != nullptr) {
+            tempStack.push(iter->data);
+            iter = iter->next;
+        }
+        while(!tempStack.empty()) {
+            cout << tempStack.top() << " ";
+            tempStack.pop();
+        }
+        cout << endl;
+    }
+
     int top() {
         if(is_empty()) {
             cout << "Stack is empty" << endl;
