@@ -58,6 +58,7 @@ public:
             cout << iter->value << " ";
             iter = iter->prev;
         }
+        cout << endl;
     }
 
     int front() {
@@ -85,38 +86,4 @@ public:
             delete tmp;
         }
     }
-
 };
-
-int main()
-{
-    Queue q;
-    while(true) {
-        cout << "Menu: " << endl;
-        cout << "1. Enque" << endl;
-        cout << "2. Print" << endl;
-        cout << "3. Exit" << endl;
-        cout << "4. Front" << endl;
-        cout << "5. Dequeue" << endl;
-
-        int choice;
-        cin >> choice;
-
-        if(choice == 1) {
-            int value;
-            cout << "Enter value: ";
-            cin >> value;
-            q.push_back(value);
-        } else if(choice == 2) {
-            q.print();
-        } else if(choice == 3) {
-            break;
-        } else if(choice == 4) {
-            int value = q.front();
-            cout << value << endl;
-        } else if(choice == 5) {
-            q.pop_front();
-        }
-    }
-    return 0;
-}
