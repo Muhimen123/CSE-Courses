@@ -87,3 +87,90 @@ public:
         }
     }
 };
+
+struct NodeString
+{
+    string value;
+    NodeString *next;
+    NodeString *prev;
+};
+
+class QueueString
+{
+private:
+    NodeString *head;
+    NodeString *tail;
+
+public:
+    QueueString()
+    {
+        head = nullptr;
+        tail = nullptr;
+    }
+
+    bool is_empty() {
+        if(head == nullptr and tail == nullptr) return true;
+        return false;
+    }
+
+    void push_back(string value) {
+        NodeString *new_node = new NodeString;
+        new_node->value = value;
+        new_node->next = nullptr;
+        new_node->prev = nullptr;
+
+        if(head == nullptr) {
+            head = new_node;
+            tail = new_node;
+        }
+        else {
+            tail->next = new_node;
+            new_node->prev = tail;
+            tail = new_node;
+        }
+    }
+
+    void print() {
+        NodeString *iter = head;
+        while(iter != NULL) {
+            cout << iter->value<< " ";
+            iter = iter->next;
+        }
+        cout << endl;
+    }
+
+    void reverse_print() {
+        NodeString *iter = tail;
+        while(iter != NULL) {
+            cout << iter->value << " ";
+            iter = iter->prev;
+        }
+        cout << endl;
+    }
+
+    string front() {
+        if(!is_empty()) {
+            return head->value;
+        } else {
+            cout << "Queue is empty" << endl;
+            return "";
+        }
+    }
+
+    void pop_front() {
+        if(is_empty()) {
+            cout << "Queue is empty" << endl;
+        }
+        else if(head == tail) {
+            delete head;
+            head = nullptr;
+            tail = nullptr;
+        } 
+        else {
+            NodeString *tmp = head;
+            head = head->next;
+            head->prev = nullptr;
+            delete tmp;
+        }
+    }
+};
