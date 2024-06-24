@@ -8,14 +8,14 @@ struct Node
     Node *prev;
 };
 
-class Deque
+class Queue
 {
 private:
     Node *head;
     Node *tail;
 
 public:
-    Deque()
+    Queue()
     {
         head = nullptr;
         tail = nullptr;
@@ -82,7 +82,7 @@ public:
 
 int main()
 {
-    Deque q;
+    Queue q;
     while(true) {
         cout << "Menu: " << endl;
         cout << "1. Enque" << endl;
