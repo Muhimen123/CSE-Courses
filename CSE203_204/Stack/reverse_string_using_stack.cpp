@@ -3,9 +3,10 @@ using namespace std;
 
 struct Node
 {
-    int data;
+    char data;
     Node *next;
 };
+
 
 class Stack
 {
@@ -50,10 +51,10 @@ public:
         cout << endl;
     }
 
-    int top() {
+    char top() {
         if(is_empty()) {
             cout << "Stack is empty" << endl;
-            return -1;
+            return 0;
         } else {
             Node *iter = head;
             while(true) {
@@ -86,36 +87,19 @@ public:
     }
 };
 
-int main()
-{
-
+int main() {
+    char str[10];
+    scanf("%s", str);
+    printf("Initial String: %s\n", str);
     Stack st;
-    while(true) {
-        cout << "Menu: " << endl;
-        cout << "1. Push" << endl;
-        cout << "2. Print" << endl;
-        cout << "3. Exit" << endl;
-        cout << "4. Top" << endl;
-        cout << "5. Pop" << endl;
-
-        int choice;
-        cin >> choice;
-
-        if(choice == 1) {
-            int value;
-            cout << "Enter value: ";
-            cin >> value;
-            st.push(value);
-        } else if(choice == 2) {
-            st.print_stack();
-        } else if(choice == 3) {
-            break;
-        } else if(choice == 4) {
-            int value = st.top();
-            cout << value << endl;
-        } else if(choice == 5) {
-            st.pop();
-        }
+    for(int i = 0; i < strlen(str); i++) {
+        st.push(str[i]);
     }
+    int index = 0;
+    while(!st.is_empty()) {
+        str[index++] = st.top();
+        st.pop();
+    }
+    printf("Reverse String: %s", str);
     return 0;
 }
