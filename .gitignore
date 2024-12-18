@@ -6,6 +6,7 @@
 *.exe
 *.o
 *.so
+*.out
 
 # Packages #
 ############
@@ -38,3 +39,5 @@ Thumbs.db
 
 **/output
 .cph
+.vscode
+
