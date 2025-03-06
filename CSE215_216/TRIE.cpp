@@ -21,7 +21,7 @@ class TRIE {
         return ch - 'a';
     }
 
-    int relChar(int idx) {
+    char relChar(int idx) {
         return idx + 'a';
     }
 
